@@ -28,9 +28,15 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Template Main  File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- ✅ ADDED: Smooth scrolling -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169007209-3"></script>
@@ -617,6 +623,15 @@
       typeSpeed: 65,
       backSpeed: 65
     });
+
+      // ✅ ADDED: Smooth scroll for nav clicks (fixes manual clicking issue)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({ behavior: 'smooth' });
+    });
+  });
   </script>
 
   <!-- Template Main JS File -->
@@ -625,6 +640,7 @@
 </body>
 
 </html>
+
 
 
 
