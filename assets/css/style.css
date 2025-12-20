@@ -314,8 +314,15 @@ section {
   width: 100%;
   opacity: 1;
   padding: 80px 0;
+  scroll-margin-top: 100px;
+  display: block;
 }
 
+/* Force sections visible (disable old template logic) */
+section {
+  opacity: 1 !important;
+  position: relative !important;
+}
 
 /* section.section-show {
   top: 70px;
@@ -1092,4 +1099,5 @@ section .container {
     transform: translateX(-50%);
   }
 }
+
 
