@@ -9,39 +9,36 @@
   "use strict";
 
   /* =====================================
-   Smooth scroll for nav links
+   Smooth scroll for nav links (FIXED)
   ====================================== */
   $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
-    if (
-      location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') &&
-      location.hostname === this.hostname
-    ) {
-      const target = $(this.hash);
-      if (target.length) {
-        e.preventDefault();
+    const hash = this.hash;
+    const target = $(hash);
 
-const offset = 100;
+    if (target.length) {
+      e.preventDefault();
 
-        $('html, body').animate(
-          {
-            scrollTop: target.offset().top - offset
-          },
-          500,
-          'easeInOutExpo'
-        );
+      const offset = 100;
 
-        // Active state
-        $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-        $(this).parent('li').addClass('active');
+      $('html, body').animate(
+        {
+          scrollTop: target.offset().top - offset
+        },
+        500,
+        'swing'
+      );
 
-        // Close mobile nav
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i')
-            .removeClass('icofont-close')
-            .addClass('icofont-navigation-menu');
-          $('.mobile-nav-overly').fadeOut();
-        }
+      // Active state
+      $('.nav-menu li, .mobile-nav li').removeClass('active');
+      $(this).parent('li').addClass('active');
+
+      // Close mobile nav
+      if ($('body').hasClass('mobile-nav-active')) {
+        $('body').removeClass('mobile-nav-active');
+        $('.mobile-nav-toggle i')
+          .removeClass('icofont-close')
+          .addClass('icofont-navigation-menu');
+        $('.mobile-nav-overly').fadeOut();
       }
     }
   });
@@ -60,7 +57,7 @@ const offset = 100;
   });
 
   /* =====================================
-   Update active nav on scroll
+   Update active nav on scroll (FIXED)
   ====================================== */
   function updateActiveNav() {
     const scrollPos = $(document).scrollTop() + 120;
@@ -71,10 +68,9 @@ const offset = 100;
 
       if (refElement.length) {
         if (
-  refElement.offset().top <= scrollPos &&
-  refElement.offset().top + refElement.outerHeight() > scrollPos
-)
- {
+          refElement.offset().top <= scrollPos &&
+          refElement.offset().top + refElement.outerHeight() > scrollPos
+        ) {
           $('.nav-menu li, .mobile-nav li').removeClass('active');
           currLink.parent('li').addClass('active');
         }
@@ -181,4 +177,3 @@ const offset = 100;
   });
 
 })(jQuery);
-
