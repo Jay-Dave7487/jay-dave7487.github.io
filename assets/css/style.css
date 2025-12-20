@@ -51,11 +51,11 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   transition: ease-in-out 0s;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   z-index: 997;
-  overflow-y: auto;
+overflow-y: auto;
 }
 
 #header * {
@@ -213,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 15px;
   left: 15px;
   z-index: 9999;
-  overflow-y: auto;
+overflow-y: auto;
   background: rgba(0, 0, 0, 0.7);
   transition: ease-in-out 0s;
   opacity: 0;
@@ -310,21 +310,19 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  overflow: hidden;
-  position: absolute;
+  position: relative;
   width: 100%;
-  top: 140px;
-  bottom: 100%;
-  opacity: 0;
-  z-index: 2;
+  opacity: 1;
+  padding: 80px 0;
 }
 
-section.section-show {
+
+/* section.section-show {
   top: 70px;
   bottom: auto;
   opacity: 1;
   padding-bottom: 0px;
-}
+} */
 
 section .container {
   background: rgba(0, 0, 0, 0);
@@ -333,12 +331,10 @@ section .container {
 
 @media (max-width: 768px) {
   section {
-    top: 120px;
-  }
-  section.section-show {
-    top: 80px;
+    padding: 60px 0;
   }
 }
+
 
 .section-title h2 {
   font-size: 14px;
@@ -1096,3 +1092,4 @@ section .container {
     transform: translateX(-50%);
   }
 }
+
