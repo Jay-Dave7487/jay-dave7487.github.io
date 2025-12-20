@@ -20,7 +20,7 @@
       if (target.length) {
         e.preventDefault();
 
-        const offset = $('#header').hasClass('header-top') ? 90 : 0;
+const offset = 100;
 
         $('html, body').animate(
           {
@@ -71,9 +71,10 @@
 
       if (refElement.length) {
         if (
-          refElement.position().top <= scrollPos &&
-          refElement.position().top + refElement.outerHeight() > scrollPos
-        ) {
+  refElement.offset().top <= scrollPos &&
+  refElement.offset().top + refElement.outerHeight() > scrollPos
+)
+ {
           $('.nav-menu li, .mobile-nav li').removeClass('active');
           currLink.parent('li').addClass('active');
         }
@@ -180,3 +181,4 @@
   });
 
 })(jQuery);
+
